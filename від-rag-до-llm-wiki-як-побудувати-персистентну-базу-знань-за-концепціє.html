@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title} | LLM Wiki</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Vis Network for Local Graph -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #1a1b26;
+            --bg-sidebar: #16161e;
+            --bg-card: #1f2335;
+            --text-main: #a9b1d6;
+            --text-heading: #c0caf5;
+            --text-muted: #565f89;
+            --accent-blue: #7aa2f7;
+            --accent-cyan: #2ac3de;
+            --accent-purple: #bb9af7;
+            --accent-orange: #ff9e64;
+            --border-color: #24283b;
+            --code-bg: #101014;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        /* Sidebar Styling */
+        aside {
+            width: 320px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-header h1 span {
+            color: var(--accent-blue);
+        }
+
+        .search-container {
+            margin-top: 16px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 16px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: inherit;
+            outline: none;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .search-results {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .search-result-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:hover {
+            background-color: var(--bg-sidebar);
+        }
+
+        .search-result-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-heading);
+        }
+
+        .search-result-snippet {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .sidebar-nav {
+            padding: 24px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .sidebar-nav h2 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Main Workspace Layout */
+        main {
+            flex-grow: 1;
+            display: flex;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Article Workspace */
+        .workspace {
+            flex-grow: 1;
+            padding: 40px 60px;
+            overflow-y: auto;
+            max-width: 900px;
+        }
+
+        /* YAML frontmatter block metadata */
+        .metadata-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tag {
+            background-color: var(--border-color);
+            color: var(--accent-cyan);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag-type {
+            background-color: rgba(122, 162, 247, 0.15);
+            color: var(--accent-blue);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag-visibility {
+            background-color: rgba(255, 158, 100, 0.1);
+            color: var(--accent-orange);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        article {
+            font-size: 1.05rem;
+        }
+
+        article h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        article h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-top: 36px;
+            margin-bottom: 16px;
+        }
+
+        article h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        article p {
+            margin-bottom: 16px;
+        }
+
+        article ul, article ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        article li {
+            margin-bottom: 8px;
+        }
+
+        article a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: border-bottom 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        article a:hover {
+            border-bottom: 1px solid var(--accent-blue);
+        }
+
+        article a.wikilink {
+            color: var(--accent-purple);
+            font-weight: 500;
+        }
+
+        article code {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #e0af68;
+        }
+
+        article .code-block-wrapper {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        article pre code {
+            background-color: transparent;
+            padding: 0;
+            color: var(--text-main);
+            display: block;
+        }
+
+        article blockquote {
+            border-left: 4px solid var(--accent-blue);
+            background-color: var(--bg-sidebar);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+            font-style: italic;
+        }
+
+        /* Graph & Workspace Panel */
+        .workspace-panel {
+            width: 320px;
+            background-color: var(--bg-sidebar);
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .panel-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            color: var(--text-heading);
+            font-size: 0.95rem;
+        }
+
+        .graph-container {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        #network-graph {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Menu & Search -->
+    <aside>
+        <div class="sidebar-header">
+            <h1><span>LLM</span> Wiki</h1>
+            
+            <!-- Dynamic Local Search -->
+            <div class="search-container">
+                <input type="text" class="search-input" id="search-input" placeholder="Поиск по вики...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+        </div>
+        <div class="sidebar-nav">
+            <h1 id="wiki-index">Wiki Index</h1>
+
+<h2 id="anime">Anime</h2>
+
+<ul>
+<li><a href="apocalypse-hotel.html">Apocalypse Hotel</a></li>
+<li><a href="hagane-no-renkinjutsushi-fullmetal-alchemist.html">Hagane no Renkinjutsushi: Fullmetal Alchemist</a></li>
+</ul>
+
+<h2 id="books">Books</h2>
+
+<ul>
+<li><a href="a-drop-of-corruption.html">A Drop of Corruption</a></li>
+<li><a href="the-last-murder-at-the-end-of-the-world.html">The Last Murder at the End of the World</a></li>
+<li><a href="what-moves-the-dead.html">What Moves the Dead</a></li>
+<li><a href="монстри-і-суперкомп-ютери.html">Монстри і Суперкомп’ютери</a></li>
+</ul>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="awesome-agent-orchestrators.html">awesome-agent-orchestrators</a></li>
+<li><a href="backup-ubuntu-in-windows-subsystem-for-linux-scott-spence.html">Backup Ubuntu in Windows Subsystem for Linux - Scott Spence</a></li>
+<li><a href="hermes-agent-оркестрація-ai-агентів-та-profiles.html">Hermes Agent: оркестрація AI-агентів та profiles</a></li>
+<li><a href="laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге.html">Laravel Copilot Workspace: как я собрал полный цикл разработки вокруг Copilot-агентов</a></li>
+<li><a href="prompt-library-claude-code-docs.html">Prompt library - Claude Code Docs</a></li>
+<li><a href="від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє.html">Від RAG до LLM Wiki: як побудувати персистентну базу знань за концепцією Андрея Карпати</a></li>
+<li><a href="ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба.html">ИИ-трейдер без кода: создаем бота для автоматизации торговли на базе OpenClaw</a></li>
+<li><a href="крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f.html">Крипта, що працює сама: як торгові боти принесли мені $1 150 за місяць — Finance.ua</a></li>
+<li><a href="як-досвід-роботи-з-go-змінив-моє-бачення-php.html">Як досвід роботи з Go змінив моє бачення PHP</a></li>
+</ul>
+
+<h2 id="movies">Movies</h2>
+
+<ul>
+<li><a href="the-super-mario-galaxy-movie.html">The Super Mario Galaxy Movie</a></li>
+</ul>
+
+<h2 id="series">Series</h2>
+
+<ul>
+<li><a href="a-knight-of-the-seven-kingdoms.html">A Knight of the Seven Kingdoms</a></li>
+<li><a href="shrinking.html">Shrinking</a></li>
+</ul>
+
+<h2 id="technologies">Technologies</h2>
+
+<ul>
+<li><a href="autoprompt-skill.html">autoprompt-skill</a></li>
+<li><a href="awesome-llm-apps.html">awesome-llm-apps</a></li>
+<li><a href="free-models-router-api-pricing-providers-openrouter.html">Free Models Router - API Pricing & Providers | OpenRouter</a></li>
+<li><a href="learn-statamic-statamic-6-docs.html">Learn Statamic // Statamic 6 Docs</a></li>
+<li><a href="ponytail.html">ponytail</a></li>
+</ul>
+        </div>
+    </aside>
+
+    <!-- Content Area & Interactive Local Graph -->
+    <main>
+        <div class="workspace">
+            <!-- Render metadata tags -->
+            <div class="metadata-tags">
+                <span class="tag-type">link</span>
+                <span class="tag-visibility">public</span>
+                
+            </div>
+            
+            <article>
+                <h1 id="від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепцією-андрея-карпати">Від RAG до LLM Wiki: як побудувати персистентну базу знань за концепцією Андрея Карпати</h1>
+
+
+<h2 id="description">Description</h2>
+<p>Андрій Богданович детально розбирає концепцію персональної бази знань, яку запропонував Андрей Карпати. У своїй статті автор розглядає її конкретну практичну реалізацію з адаптацією під українську мову - пояснює структуру репозиторію, ingest/query/lint wo</p>
+
+<h2 id="related">Related</h2>
+
+<ul>
+<li><a href="як-досвід-роботи-з-go-змінив-моє-бачення-php.html">Як досвід роботи з Go змінив моє бачення PHP</a></li>
+<li><a href="backup-ubuntu-in-windows-subsystem-for-linux-scott-spence.html">Backup Ubuntu in Windows Subsystem for Linux - Scott Spence</a></li>
+<li><a href="hermes-agent-оркестрація-ai-агентів-та-profiles.html">Hermes Agent: оркестрація AI-агентів та profiles</a></li>
+<li><a href="laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге.html">Laravel Copilot Workspace: как я собрал полный цикл разработки вокруг Copilot...</a></li>
+<li><a href="prompt-library-claude-code-docs.html">Prompt library - Claude Code Docs</a></li>
+</ul>
+            </article>
+        </div>
+
+        <!-- Local Obsidian-style Interactive Graph Panel -->
+        <div class="workspace-panel">
+            <div class="panel-header">Локальный граф связей</div>
+            <div class="graph-container">
+                <div id="network-graph"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Search & Graph Scripts -->
+    <script>
+        const CURRENT_SLUG = "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє";
+
+        // 1. Live Static Local Search Engine
+        let searchIndex = [];
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        // Lazy load search index
+        searchInput.addEventListener('focus', () => {
+            if (searchIndex.length === 0) {
+                fetch('./search.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        searchIndex = data;
+                    })
+                    .catch(err => console.error("Error loading search.json:", err));
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            searchResults.innerHTML = '';
+            
+            if (!query) {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            const filtered = searchIndex.filter(item => {
+                return item.title.toLowerCase().includes(query) || 
+                       item.summary.toLowerCase().includes(query) ||
+                       (item.aliases && item.aliases.some(alias => alias.toLowerCase().includes(query))) ||
+                       (item.tags && item.tags.some(tag => tag.toLowerCase().includes(query)));
+            }).slice(0, 10);
+
+            if (filtered.length > 0) {
+                filtered.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    const resultTitle = document.createElement('div');
+                    resultTitle.className = 'search-result-title';
+                    resultTitle.textContent = item.title;
+                    const resultSnippet = document.createElement('div');
+                    resultSnippet.className = 'search-result-snippet';
+                    resultSnippet.textContent = item.summary || item.text.substring(0, 100);
+                    div.append(resultTitle, resultSnippet);
+                    div.addEventListener('click', () => {
+                        window.location.href = `./${item.id}.html`;
+                    });
+                    searchResults.appendChild(div);
+                });
+                searchResults.style.display = 'block';
+            } else {
+                const div = document.createElement('div');
+                div.className = 'search-result-item';
+                div.style.color = 'var(--text-muted)';
+                div.innerText = 'Ничего не найдено';
+                searchResults.appendChild(div);
+                searchResults.style.display = 'block';
+            }
+        });
+
+        // Close search on click outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // 2. Interactive Local Graph View (Vis Network)
+        fetch('./graph.json')
+            .then(response => response.json())
+            .then(data => {
+                const nodes = data.nodes || [];
+                const edges = data.edges || [];
+
+                // Filter for current page and its neighbors (first degree connections)
+                const connectedEdgeSlugs = new Set();
+                edges.forEach(edge => {
+                    if (edge.from === CURRENT_SLUG) connectedEdgeSlugs.add(edge.to);
+                    if (edge.to === CURRENT_SLUG) connectedEdgeSlugs.add(edge.from);
+                });
+
+                const localNodesSet = new Set([CURRENT_SLUG, ...connectedEdgeSlugs]);
+                const filteredNodes = nodes.filter(node => localNodesSet.has(node.id));
+                const filteredEdges = edges.filter(edge => localNodesSet.has(edge.from) && localNodesSet.has(edge.to));
+
+                // Color mapping
+                const mappedNodes = filteredNodes.map(node => {
+                    const isCurrent = node.id === CURRENT_SLUG;
+                    return {
+                        id: node.id,
+                        label: node.title,
+                        shape: 'dot',
+                        size: isCurrent ? 25 : 15,
+                        color: {
+                            background: isCurrent ? '#bb9af7' : '#24283b',
+                            border: isCurrent ? '#bb9af7' : '#7aa2f7',
+                            highlight: {
+                                background: '#2ac3de',
+                                border: '#2ac3de'
+                            }
+                        },
+                        font: {
+                            color: isCurrent ? '#c0caf5' : '#a9b1d6',
+                            size: isCurrent ? 14 : 12,
+                            face: 'Inter'
+                        },
+                        borderWidth: 2
+                    };
+                });
+
+                const mappedEdges = filteredEdges.map(edge => {
+                    return {
+                        from: edge.from,
+                        to: edge.to,
+                        color: {
+                            color: edge.from === CURRENT_SLUG || edge.to === CURRENT_SLUG ? '#7aa2f7' : '#414868',
+                            highlight: '#2ac3de'
+                        },
+                        width: edge.from === CURRENT_SLUG || edge.to === CURRENT_SLUG ? 2 : 1
+                    };
+                });
+
+                const container = document.getElementById('network-graph');
+                const graphData = {
+                    nodes: new vis.DataSet(mappedNodes),
+                    edges: new vis.DataSet(mappedEdges)
+                };
+
+                const options = {
+                    nodes: {
+                        scaling: {
+                            min: 10,
+                            max: 30
+                        }
+                    },
+                    physics: {
+                        barnesHut: {
+                            gravitationalConstant: -2000,
+                            centralGravity: 0.3,
+                            springLength: 95,
+                            springConstant: 0.04,
+                            damping: 0.09,
+                            avoidOverlap: 0.1
+                        }
+                    },
+                    interaction: {
+                        hover: true,
+                        tooltipDelay: 3600000 // Disable built-in tooltip popups
+                    }
+                };
+
+                const network = new vis.Network(container, graphData, options);
+
+                // Add navigation to graph click
+                network.on("click", (params) => {
+                    if (params.nodes.length > 0) {
+                        const clickedNode = params.nodes[0];
+                        if (clickedNode !== CURRENT_SLUG) {
+                            window.location.href = `./${clickedNode}.html`;
+                        }
+                    }
+                });
+            })
+            .catch(err => console.error("Error loading graph.json:", err));
+    </script>
+</body>
+</html>

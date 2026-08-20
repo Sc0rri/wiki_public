@@ -1,0 +1,727 @@
+{
+  "nodes": [
+    {
+      "id": "apocalypse-hotel",
+      "type": "anime",
+      "title": "Apocalypse Hotel",
+      "tags": [
+        "Аниме"
+      ]
+    },
+    {
+      "id": "hagane-no-renkinjutsushi-fullmetal-alchemist",
+      "type": "anime",
+      "title": "Hagane no Renkinjutsushi: Fullmetal Alchemist",
+      "tags": [
+        "Аниме"
+      ]
+    },
+    {
+      "id": "a-drop-of-corruption",
+      "type": "book",
+      "title": "A Drop of Corruption",
+      "tags": [
+        "forwarded",
+        "Фантастика",
+        "Детектив"
+      ]
+    },
+    {
+      "id": "the-last-murder-at-the-end-of-the-world",
+      "type": "book",
+      "title": "The Last Murder at the End of the World",
+      "tags": [
+        "Книга",
+        "Детектив",
+        "Фантастика"
+      ]
+    },
+    {
+      "id": "what-moves-the-dead",
+      "type": "book",
+      "title": "What Moves the Dead",
+      "tags": [
+        "Книга",
+        "Фантастика",
+        "Ужасы"
+      ]
+    },
+    {
+      "id": "монстри-і-суперкомп-ютери",
+      "type": "book",
+      "title": "Монстри і Суперкомп’ютери",
+      "tags": [
+        "forwarded",
+        "Книга",
+        "Научная фантастика",
+        "Ужасы",
+        "Искусственный интеллект"
+      ]
+    },
+    {
+      "id": "awesome-agent-orchestrators",
+      "type": "link",
+      "title": "awesome-agent-orchestrators",
+      "tags": [
+        "agent-coordination",
+        "agent-orchestration",
+        "agent-swarm",
+        "agentic-ai",
+        "ai-agents",
+        "ai-coding",
+        "ai-orchestration",
+        "awesome",
+        "awesome-list",
+        "claude-code",
+        "codex",
+        "coding-agents",
+        "gemini-cli",
+        "git-worktree",
+        "multi-agent-systems",
+        "opencode",
+        "parallel-agents",
+        "ralph-loop",
+        "ralph-wiggum",
+        "vibe-coding",
+        "AI Agents",
+        "GitHub",
+        "Orchestration"
+      ]
+    },
+    {
+      "id": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "type": "link",
+      "title": "Backup Ubuntu in Windows Subsystem for Linux - Scott Spence",
+      "tags": [
+        "Ubuntu",
+        "WSL",
+        "Windows"
+      ]
+    },
+    {
+      "id": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "link",
+      "title": "Hermes Agent: оркестрація AI-агентів та profiles",
+      "tags": [
+        "AI",
+        "YouTube",
+        "Hermes",
+        "Искусственный интеллект",
+        "Автоматизация"
+      ]
+    },
+    {
+      "id": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "link",
+      "title": "Laravel Copilot Workspace: как я собрал полный цикл разработки вокруг Copilot-агентов",
+      "tags": [
+        "Laravel",
+        "AI",
+        "GitHub Copilot"
+      ]
+    },
+    {
+      "id": "prompt-library-claude-code-docs",
+      "type": "link",
+      "title": "Prompt library - Claude Code Docs",
+      "tags": [
+        "Claude",
+        "Prompt Engineering",
+        "AI"
+      ]
+    },
+    {
+      "id": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "type": "link",
+      "title": "Від RAG до LLM Wiki: як побудувати персистентну базу знань за концепцією Андрея Карпати",
+      "tags": [
+        "DOU"
+      ]
+    },
+    {
+      "id": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "type": "link",
+      "title": "ИИ-трейдер без кода: создаем бота для автоматизации торговли на базе OpenClaw",
+      "tags": [
+        "Искусственный интеллект",
+        "Трейдинг",
+        "Бот"
+      ]
+    },
+    {
+      "id": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "type": "link",
+      "title": "Крипта, що працює сама: як торгові боти принесли мені $1 150 за місяць — Finance.ua",
+      "tags": [
+        "Криптовалюта",
+        "Трейдинг"
+      ]
+    },
+    {
+      "id": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "type": "link",
+      "title": "Як досвід роботи з Go змінив моє бачення PHP",
+      "tags": [
+        "DOU"
+      ]
+    },
+    {
+      "id": "the-super-mario-galaxy-movie",
+      "type": "movie",
+      "title": "The Super Mario Galaxy Movie",
+      "tags": [
+        "Фильм",
+        "Анимация",
+        "Видеоигры"
+      ]
+    },
+    {
+      "id": "a-knight-of-the-seven-kingdoms",
+      "type": "series",
+      "title": "A Knight of the Seven Kingdoms",
+      "tags": [
+        "Фэнтези",
+        "Сериал"
+      ]
+    },
+    {
+      "id": "shrinking",
+      "type": "series",
+      "title": "Shrinking",
+      "tags": [
+        "Комедия",
+        "Драмеди",
+        "Телесериал"
+      ]
+    },
+    {
+      "id": "autoprompt-skill",
+      "type": "technology",
+      "title": "autoprompt-skill",
+      "tags": [
+        "agent-orchestration",
+        "agent-skills",
+        "agentic-workflows",
+        "ai-agents",
+        "ai-coding",
+        "automated-testing",
+        "autonomous-agents",
+        "claude-code",
+        "cli",
+        "code-review",
+        "codex",
+        "coding-agent",
+        "developer-tools",
+        "github-copilot",
+        "multi-agent-systems",
+        "opencode",
+        "prompt-engineering",
+        "subagents",
+        "test-driven-development",
+        "workflow-automation",
+        "JavaScript",
+        "GitHub",
+        "AI",
+        "Prompt Engineering"
+      ]
+    },
+    {
+      "id": "awesome-llm-apps",
+      "type": "technology",
+      "title": "awesome-llm-apps",
+      "tags": [
+        "agents",
+        "llms",
+        "python",
+        "rag",
+        "Python",
+        "LLM",
+        "GitHub",
+        "AI"
+      ]
+    },
+    {
+      "id": "free-models-router-api-pricing-providers-openrouter",
+      "type": "technology",
+      "title": "Free Models Router - API Pricing & Providers | OpenRouter",
+      "tags": [
+        "OpenRouter",
+        "API",
+        "AI",
+        "LLM"
+      ]
+    },
+    {
+      "id": "learn-statamic-statamic-6-docs",
+      "type": "technology",
+      "title": "Learn Statamic // Statamic 6 Docs",
+      "tags": [
+        "Statamic",
+        "CMS",
+        "PHP",
+        "Laravel"
+      ]
+    },
+    {
+      "id": "ponytail",
+      "type": "technology",
+      "title": "ponytail",
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "claude",
+        "claude-code",
+        "claude-code-plugin",
+        "cursor-rules",
+        "developer-tools",
+        "llm",
+        "prompt-engineering",
+        "yagni",
+        "JavaScript",
+        "GitHub"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "apocalypse-hotel",
+      "to": "hagane-no-renkinjutsushi-fullmetal-alchemist",
+      "type": "related_to"
+    },
+    {
+      "from": "hagane-no-renkinjutsushi-fullmetal-alchemist",
+      "to": "apocalypse-hotel",
+      "type": "related_to"
+    },
+    {
+      "from": "a-drop-of-corruption",
+      "to": "the-last-murder-at-the-end-of-the-world",
+      "type": "related_to"
+    },
+    {
+      "from": "a-drop-of-corruption",
+      "to": "what-moves-the-dead",
+      "type": "related_to"
+    },
+    {
+      "from": "a-drop-of-corruption",
+      "to": "монстри-і-суперкомп-ютери",
+      "type": "related_to"
+    },
+    {
+      "from": "the-last-murder-at-the-end-of-the-world",
+      "to": "a-drop-of-corruption",
+      "type": "related_to"
+    },
+    {
+      "from": "the-last-murder-at-the-end-of-the-world",
+      "to": "what-moves-the-dead",
+      "type": "related_to"
+    },
+    {
+      "from": "the-last-murder-at-the-end-of-the-world",
+      "to": "монстри-і-суперкомп-ютери",
+      "type": "related_to"
+    },
+    {
+      "from": "what-moves-the-dead",
+      "to": "the-last-murder-at-the-end-of-the-world",
+      "type": "related_to"
+    },
+    {
+      "from": "what-moves-the-dead",
+      "to": "монстри-і-суперкомп-ютери",
+      "type": "related_to"
+    },
+    {
+      "from": "what-moves-the-dead",
+      "to": "a-drop-of-corruption",
+      "type": "related_to"
+    },
+    {
+      "from": "монстри-і-суперкомп-ютери",
+      "to": "what-moves-the-dead",
+      "type": "related_to"
+    },
+    {
+      "from": "монстри-і-суперкомп-ютери",
+      "to": "a-drop-of-corruption",
+      "type": "related_to"
+    },
+    {
+      "from": "монстри-і-суперкомп-ютери",
+      "to": "the-last-murder-at-the-end-of-the-world",
+      "type": "related_to"
+    },
+    {
+      "from": "монстри-і-суперкомп-ютери",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "монстри-і-суперкомп-ютери",
+      "to": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-agent-orchestrators",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-agent-orchestrators",
+      "to": "ponytail",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-agent-orchestrators",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-agent-orchestrators",
+      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-agent-orchestrators",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "awesome-agent-orchestrators",
+      "type": "related_to"
+    },
+    {
+      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "type": "related_to"
+    },
+    {
+      "from": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "to": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "type": "related_to"
+    },
+    {
+      "from": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "to": "free-models-router-api-pricing-providers-openrouter",
+      "type": "related_to"
+    },
+    {
+      "from": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "to": "free-models-router-api-pricing-providers-openrouter",
+      "type": "related_to"
+    },
+    {
+      "from": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "to": "learn-statamic-statamic-6-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "prompt-library-claude-code-docs",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "prompt-library-claude-code-docs",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "prompt-library-claude-code-docs",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "prompt-library-claude-code-docs",
+      "to": "free-models-router-api-pricing-providers-openrouter",
+      "type": "related_to"
+    },
+    {
+      "from": "prompt-library-claude-code-docs",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "to": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "type": "related_to"
+    },
+    {
+      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "type": "related_to"
+    },
+    {
+      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "to": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "type": "related_to"
+    },
+    {
+      "from": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "to": "монстри-і-суперкомп-ютери",
+      "type": "related_to"
+    },
+    {
+      "from": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "type": "related_to"
+    },
+    {
+      "from": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "to": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
+      "type": "related_to"
+    },
+    {
+      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "type": "related_to"
+    },
+    {
+      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "to": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "type": "related_to"
+    },
+    {
+      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "type": "related_to"
+    },
+    {
+      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "a-knight-of-the-seven-kingdoms",
+      "to": "shrinking",
+      "type": "related_to"
+    },
+    {
+      "from": "shrinking",
+      "to": "a-knight-of-the-seven-kingdoms",
+      "type": "related_to"
+    },
+    {
+      "from": "autoprompt-skill",
+      "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "autoprompt-skill",
+      "to": "awesome-agent-orchestrators",
+      "type": "related_to"
+    },
+    {
+      "from": "autoprompt-skill",
+      "to": "ponytail",
+      "type": "related_to"
+    },
+    {
+      "from": "autoprompt-skill",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "autoprompt-skill",
+      "to": "free-models-router-api-pricing-providers-openrouter",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-llm-apps",
+      "to": "free-models-router-api-pricing-providers-openrouter",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-llm-apps",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-llm-apps",
+      "to": "ponytail",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-llm-apps",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-llm-apps",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "free-models-router-api-pricing-providers-openrouter",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "free-models-router-api-pricing-providers-openrouter",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "free-models-router-api-pricing-providers-openrouter",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "free-models-router-api-pricing-providers-openrouter",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "free-models-router-api-pricing-providers-openrouter",
+      "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "free-models-router-api-pricing-providers-openrouter",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "ponytail",
+      "type": "related_to"
+    },
+    {
+      "from": "ponytail",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "ponytail",
+      "to": "awesome-agent-orchestrators",
+      "type": "related_to"
+    },
+    {
+      "from": "ponytail",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "ponytail",
+      "to": "free-models-router-api-pricing-providers-openrouter",
+      "type": "related_to"
+    },
+    {
+      "from": "ponytail",
+      "to": "learn-statamic-statamic-6-docs",
+      "type": "related_to"
+    }
+  ]
+}
