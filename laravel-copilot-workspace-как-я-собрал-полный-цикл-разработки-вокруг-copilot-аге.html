@@ -194,6 +194,27 @@
             margin-bottom: 24px;
         }
 
+        /* Prominent source link for link pages (from frontmatter url) */
+        .source-link {
+            display: inline-block;
+            margin-top: 4px;
+            margin-bottom: 20px;
+            padding: 8px 14px;
+            background-color: rgba(122, 162, 247, 0.12);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-heading);
+            word-break: break-all;
+        }
+        .source-link a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        .source-link a:hover {
+            text-decoration: underline;
+        }
+
         .tag {
             background-color: var(--border-color);
             color: var(--accent-cyan);
@@ -315,7 +336,7 @@
 
         /* Graph & Workspace Panel */
         .workspace-panel {
-            width: 320px;
+            width: 420px;
             background-color: var(--bg-sidebar);
             border-left: 1px solid var(--border-color);
             display: flex;
@@ -336,7 +357,7 @@
         .graph-container {
             flex-grow: 1;
             position: relative;
-            min-height: 0;
+            min-height: 480px;
         }
 
         #network-graph {
@@ -425,7 +446,7 @@
                 <span class="tag-visibility">public</span>
                 
             </div>
-            
+            <div class="source-link" title="Источник">&#8599; <a href="https://habr.com/ru/articles/972648/" target="_blank" rel="noopener">https://habr.com/ru/articles/972648/</a></div>
             <article>
                 <h1 id="laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-агентов">Laravel Copilot Workspace: как я собрал полный цикл разработки вокруг Copilot-агентов</h1>
 
@@ -532,53 +553,96 @@
                 const nodes = data.nodes || [];
                 const edges = data.edges || [];
 
-                // Filter for current page and its neighbors (first degree connections)
-                const connectedEdgeSlugs = new Set();
+                // Color palette per entity type
+                const TYPE_COLORS = {
+                    book: '#7aa2f7',
+                    movie: '#7dcfff',
+                    series: '#9d7cd8',
+                    anime: '#bb9af7',
+                    technology: '#2ac3de',
+                    link: '#ff9e64',
+                    note: '#9ece6a',
+                    product: '#e0af68',
+                    default: '#565f89'
+                };
+
+                // Count each node's degree so hubs render a bit larger.
+                const degreeScale = {};
+                nodes.forEach(n => degreeScale[n.id] = 0);
                 edges.forEach(edge => {
-                    if (edge.from === CURRENT_SLUG) connectedEdgeSlugs.add(edge.to);
-                    if (edge.to === CURRENT_SLUG) connectedEdgeSlugs.add(edge.from);
+                    if (degreeScale[edge.from] !== undefined) degreeScale[edge.from]++;
+                    if (degreeScale[edge.to] !== undefined) degreeScale[edge.to]++;
                 });
 
-                const localNodesSet = new Set([CURRENT_SLUG, ...connectedEdgeSlugs]);
-                const filteredNodes = nodes.filter(node => localNodesSet.has(node.id));
-                const filteredEdges = edges.filter(edge => localNodesSet.has(edge.from) && localNodesSet.has(edge.to));
+                // On content pages show only the current node + its neighbours
+                // (1st degree). On a page with no node in the graph (e.g. index,
+                // which isn't a real knowledge page) show the whole graph.
+                const hasCurrent = nodes.some(n => n.id === CURRENT_SLUG);
+                let localNodesSet;
+                let shownEdges;
+                if (hasCurrent) {
+                    const connectedEdgeSlugs = new Set();
+                    edges.forEach(edge => {
+                        if (edge.from === CURRENT_SLUG) connectedEdgeSlugs.add(edge.to);
+                        if (edge.to === CURRENT_SLUG) connectedEdgeSlugs.add(edge.from);
+                    });
+                    localNodesSet = new Set([CURRENT_SLUG, ...connectedEdgeSlugs]);
+                    shownEdges = edges.filter(edge =>
+                        localNodesSet.has(edge.from) && localNodesSet.has(edge.to));
+                } else {
+                    localNodesSet = new Set(nodes.map(n => n.id));
+                    shownEdges = edges;
+                }
 
-                // Color mapping
+                // Vis.network draws symmetric a->b and b->a as overlapping lines;
+                // drop the duplicate direction to keep the graph readable.
+                const seenKeys = new Set();
+                const dedupEdges = [];
+                shownEdges.forEach(edge => {
+                    const k1 = edge.from + '|' + edge.to;
+                    const k2 = edge.to + '|' + edge.from;
+                    if (seenKeys.has(k1)) return;
+                    seenKeys.add(k1);
+                    seenKeys.add(k2);
+                    dedupEdges.push(edge);
+                });
+
+                const touches = (edge) => edge.from === CURRENT_SLUG || edge.to === CURRENT_SLUG;
+                const filteredNodes = nodes.filter(n => localNodesSet.has(n.id));
+
                 const mappedNodes = filteredNodes.map(node => {
                     const isCurrent = node.id === CURRENT_SLUG;
+                    const deg = degreeScale[node.id] || 0;
+                    const color = TYPE_COLORS[node.type] || TYPE_COLORS.default;
+                    const fill = isCurrent ? TYPE_COLORS.anime : color;
                     return {
                         id: node.id,
                         label: node.title,
                         shape: 'dot',
-                        size: isCurrent ? 25 : 15,
+                        size: isCurrent ? 28 : (11 + Math.min(deg * 2, 16)),
                         color: {
-                            background: isCurrent ? '#bb9af7' : '#24283b',
-                            border: isCurrent ? '#bb9af7' : '#7aa2f7',
-                            highlight: {
-                                background: '#2ac3de',
-                                border: '#2ac3de'
-                            }
+                            background: fill,
+                            border: fill,
+                            highlight: { background: '#2ac3de', border: '#2ac3de' }
                         },
                         font: {
                             color: isCurrent ? '#c0caf5' : '#a9b1d6',
-                            size: isCurrent ? 14 : 12,
+                            size: isCurrent ? 15 : 12,
                             face: 'Inter'
                         },
-                        borderWidth: 2
+                        borderWidth: isCurrent ? 3 : 2
                     };
                 });
 
-                const mappedEdges = filteredEdges.map(edge => {
-                    return {
-                        from: edge.from,
-                        to: edge.to,
-                        color: {
-                            color: edge.from === CURRENT_SLUG || edge.to === CURRENT_SLUG ? '#7aa2f7' : '#414868',
-                            highlight: '#2ac3de'
-                        },
-                        width: edge.from === CURRENT_SLUG || edge.to === CURRENT_SLUG ? 2 : 1
-                    };
-                });
+                const mappedEdges = dedupEdges.map(edge => ({
+                    from: edge.from,
+                    to: edge.to,
+                    color: {
+                        color: touches(edge) ? '#7aa2f7' : '#3b4261',
+                        highlight: '#2ac3de'
+                    },
+                    width: touches(edge) ? 2.5 : 1.2
+                }));
 
                 const container = document.getElementById('network-graph');
                 const graphData = {
@@ -587,20 +651,18 @@
                 };
 
                 const options = {
+                    layout: { width: '100%', height: '100%', improved: true },
                     nodes: {
-                        scaling: {
-                            min: 10,
-                            max: 30
-                        }
+                        scaling: { min: 10, max: 40 }
                     },
                     physics: {
                         barnesHut: {
-                            gravitationalConstant: -2000,
-                            centralGravity: 0.3,
-                            springLength: 95,
-                            springConstant: 0.04,
-                            damping: 0.09,
-                            avoidOverlap: 0.1
+                            gravitationalConstant: -1800,
+                            centralGravity: 0.02,
+                            springLength: 200,
+                            springConstant: 0.02,
+                            damping: 0.12,
+                            avoidOverlap: 0.6
                         }
                     },
                     interaction: {
@@ -611,11 +673,11 @@
 
                 const network = new vis.Network(container, graphData, options);
 
-                // Add navigation to graph click
+                // Add navigation to graph click (only to pages that exist)
                 network.on("click", (params) => {
                     if (params.nodes.length > 0) {
                         const clickedNode = params.nodes[0];
-                        if (clickedNode !== CURRENT_SLUG) {
+                        if (clickedNode !== CURRENT_SLUG && localNodesSet.has(clickedNode)) {
                             window.location.href = `./${clickedNode}.html`;
                         }
                     }
