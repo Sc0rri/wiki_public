@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mandalorian and Grogu | LLM Wiki</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Vis Network for Local Graph -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        :root {
+            --bg-color: #1a1b26;
+            --bg-sidebar: #16161e;
+            --bg-card: #1f2335;
+            --text-main: #a9b1d6;
+            --text-heading: #c0caf5;
+            --text-muted: #565f89;
+            --accent-blue: #7aa2f7;
+            --accent-cyan: #2ac3de;
+            --accent-purple: #bb9af7;
+            --accent-orange: #ff9e64;
+            --border-color: #24283b;
+            --code-bg: #101014;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        /* Sidebar Styling */
+        aside {
+            width: 320px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-header h1 span {
+            color: var(--accent-blue);
+        }
+
+        .search-container {
+            margin-top: 16px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 16px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: inherit;
+            outline: none;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .search-results {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            right: 0;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .search-result-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-result-item:hover {
+            background-color: var(--bg-sidebar);
+        }
+
+        .search-result-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-heading);
+        }
+
+        .search-result-snippet {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .sidebar-nav {
+            padding: 24px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .sidebar-nav h2 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-nav ul {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            display: block;
+        }
+
+        .sidebar-nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Main Workspace Layout */
+        main {
+            flex-grow: 1;
+            display: flex;
+            height: 100%;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        /* Article Workspace */
+        .workspace {
+            flex-grow: 1;
+            padding: 40px 60px;
+            overflow-y: auto;
+            max-width: 900px;
+        }
+
+        /* YAML frontmatter block metadata */
+        .metadata-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        /* Prominent source link for link pages (from frontmatter url) */
+        .source-link {
+            display: inline-block;
+            margin-top: 4px;
+            margin-bottom: 20px;
+            padding: 8px 14px;
+            background-color: rgba(122, 162, 247, 0.12);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-heading);
+            word-break: break-all;
+        }
+        .source-link a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+        .source-link a:hover {
+            text-decoration: underline;
+        }
+
+        .tag {
+            background-color: var(--border-color);
+            color: var(--accent-cyan);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag-type {
+            background-color: rgba(122, 162, 247, 0.15);
+            color: var(--accent-blue);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .tag-visibility {
+            background-color: rgba(255, 158, 100, 0.1);
+            color: var(--accent-orange);
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        article {
+            font-size: 1.05rem;
+        }
+
+        article h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+
+        article h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-top: 36px;
+            margin-bottom: 16px;
+        }
+
+        article h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        article p {
+            margin-bottom: 16px;
+        }
+
+        article ul, article ol {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        article li {
+            margin-bottom: 8px;
+        }
+
+        article a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: border-bottom 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+
+        article a:hover {
+            border-bottom: 1px solid var(--accent-blue);
+        }
+
+        article a.wikilink {
+            color: var(--accent-purple);
+            font-weight: 500;
+        }
+
+        article code {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #e0af68;
+        }
+
+        article .code-block-wrapper {
+            background-color: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+
+        article pre code {
+            background-color: transparent;
+            padding: 0;
+            color: var(--text-main);
+            display: block;
+        }
+
+        article blockquote {
+            border-left: 4px solid var(--accent-blue);
+            background-color: var(--bg-sidebar);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 24px 0;
+            font-style: italic;
+        }
+
+        /* Graph & Workspace Panel */
+        .workspace-panel {
+            width: 420px;
+            background-color: var(--bg-sidebar);
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 0;
+            flex-shrink: 0;
+        }
+
+        .panel-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            color: var(--text-heading);
+            font-size: 0.95rem;
+        }
+
+        .graph-container {
+            flex-grow: 1;
+            position: relative;
+            min-height: 480px;
+        }
+
+        #network-graph {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar Menu & Search -->
+    <aside>
+        <div class="sidebar-header">
+            <h1><span>LLM</span> Wiki</h1>
+            
+            <!-- Dynamic Local Search -->
+            <div class="search-container">
+                <input type="text" class="search-input" id="search-input" placeholder="Поиск по вики...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+        </div>
+        <div class="sidebar-nav">
+            <h1 id="wiki-index">Wiki Index</h1>
+
+<h2 id="anime">Anime</h2>
+
+<ul>
+<li><a href="apocalypse-hotel.html">Apocalypse Hotel</a></li>
+<li><a href="hagane-no-renkinjutsushi-fullmetal-alchemist.html">Hagane no Renkinjutsushi: Fullmetal Alchemist</a></li>
+</ul>
+
+<h2 id="books">Books</h2>
+
+<ul>
+<li><a href="a-drop-of-corruption.html">A Drop of Corruption</a></li>
+<li><a href="the-last-murder-at-the-end-of-the-world.html">The Last Murder at the End of the World</a></li>
+<li><a href="what-moves-the-dead.html">What Moves the Dead</a></li>
+<li><a href="монстри-і-суперкомп-ютери.html">Монстри і Суперкомп’ютери</a></li>
+</ul>
+
+<h2 id="links">Links</h2>
+
+<ul>
+<li><a href="awesome-agent-orchestrators.html">awesome-agent-orchestrators</a></li>
+<li><a href="backup-ubuntu-in-windows-subsystem-for-linux-scott-spence.html">Backup Ubuntu in Windows Subsystem for Linux - Scott Spence</a></li>
+<li><a href="hermes-agent-оркестрація-ai-агентів-та-profiles.html">Hermes Agent: оркестрація AI-агентів та profiles</a></li>
+<li><a href="laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге.html">Laravel Copilot Workspace: как я собрал полный цикл разработки вокруг Copilot-агентов</a></li>
+<li><a href="prompt-library-claude-code-docs.html">Prompt library - Claude Code Docs</a></li>
+<li><a href="від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє.html">Від RAG до LLM Wiki: як побудувати персистентну базу знань за концепцією Андрея Карпати</a></li>
+<li><a href="ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба.html">ИИ-трейдер без кода: создаем бота для автоматизации торговли на базе OpenClaw</a></li>
+<li><a href="крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f.html">Крипта, що працює сама: як торгові боти принесли мені $1 150 за місяць — Finance.ua</a></li>
+<li><a href="як-досвід-роботи-з-go-змінив-моє-бачення-php.html">Як досвід роботи з Go змінив моє бачення PHP</a></li>
+</ul>
+
+<h2 id="movies">Movies</h2>
+
+<ul>
+<li><a href="the-mandalorian-and-grogu.html">The Mandalorian and Grogu</a></li>
+<li><a href="the-super-mario-galaxy-movie.html">The Super Mario Galaxy Movie</a></li>
+</ul>
+
+<h2 id="series">Series</h2>
+
+<ul>
+<li><a href="a-knight-of-the-seven-kingdoms.html">A Knight of the Seven Kingdoms</a></li>
+<li><a href="shrinking.html">Shrinking</a></li>
+</ul>
+
+<h2 id="technologies">Technologies</h2>
+
+<ul>
+<li><a href="autoprompt-skill.html">autoprompt-skill</a></li>
+<li><a href="awesome-llm-apps.html">awesome-llm-apps</a></li>
+<li><a href="free-models-router-api-pricing-providers-openrouter.html">Free Models Router - API Pricing & Providers | OpenRouter</a></li>
+<li><a href="learn-statamic-statamic-6-docs.html">Learn Statamic // Statamic 6 Docs</a></li>
+<li><a href="ponytail.html">ponytail</a></li>
+</ul>
+        </div>
+    </aside>
+
+    <!-- Content Area & Interactive Local Graph -->
+    <main>
+        <div class="workspace">
+            <!-- Render metadata tags -->
+            <div class="metadata-tags">
+                <span class="tag-type">movie</span>
+                <span class="tag-visibility">public</span>
+                
+            </div>
+            
+            <article>
+                <h1 id="the-mandalorian-and-grogu">The Mandalorian and Grogu</h1>
+
+
+<h2 id="description">Description</h2>
+<p>У Мандалорца нет сюжета, только путь</p>
+
+<h2 id="metadata">Metadata</h2>
+<ul>
+<li><strong>Original Title:</strong> The Mandalorian and Grogu</li>
+<li><strong>Director:</strong> Jon Favreau</li>
+<li><strong>Runtime:</strong> 132</li>
+<li><strong>Year:</strong> 2026</li>
+<li><strong>Genres:</strong> Action, Adventure, Science Fiction</li>
+</ul>
+
+<h2 id="themes">Themes</h2>
+<ul>
+<li>космическая опера</li>
+<li>охота за головами</li>
+<li>наемники</li>
+<li>искусственный интеллект и роботы</li>
+</ul>
+
+<h2 id="personal">Personal</h2>
+<p><strong>Rating:</strong> 4/10</p>
+<p><strong>Status:</strong> Watched</p>
+
+<h2 id="related">Related</h2>
+
+<ul>
+<li><a href="a-drop-of-corruption.html">A Drop of Corruption</a></li>
+<li><a href="the-last-murder-at-the-end-of-the-world.html">The Last Murder at the End of the World</a></li>
+<li><a href="what-moves-the-dead.html">What Moves the Dead</a></li>
+<li><a href="the-super-mario-galaxy-movie.html">The Super Mario Galaxy Movie</a></li>
+</ul>
+            </article>
+        </div>
+
+        <!-- Local Obsidian-style Interactive Graph Panel -->
+        <div class="workspace-panel">
+            <div class="panel-header">Локальный граф связей</div>
+            <div class="graph-container">
+                <div id="network-graph"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Search & Graph Scripts -->
+    <script>
+        const CURRENT_SLUG = "the-mandalorian-and-grogu";
+
+        // 1. Live Static Local Search Engine
+        let searchIndex = [];
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        // Lazy load search index
+        searchInput.addEventListener('focus', () => {
+            if (searchIndex.length === 0) {
+                fetch('./search.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        searchIndex = data;
+                    })
+                    .catch(err => console.error("Error loading search.json:", err));
+            }
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            searchResults.innerHTML = '';
+            
+            if (!query) {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            const filtered = searchIndex.filter(item => {
+                return item.title.toLowerCase().includes(query) || 
+                       item.summary.toLowerCase().includes(query) ||
+                       (item.aliases && item.aliases.some(alias => alias.toLowerCase().includes(query))) ||
+                       (item.tags && item.tags.some(tag => tag.toLowerCase().includes(query)));
+            }).slice(0, 10);
+
+            if (filtered.length > 0) {
+                filtered.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'search-result-item';
+                    const resultTitle = document.createElement('div');
+                    resultTitle.className = 'search-result-title';
+                    resultTitle.textContent = item.title;
+                    const resultSnippet = document.createElement('div');
+                    resultSnippet.className = 'search-result-snippet';
+                    resultSnippet.textContent = item.summary || item.text.substring(0, 100);
+                    div.append(resultTitle, resultSnippet);
+                    div.addEventListener('click', () => {
+                        window.location.href = `./${item.id}.html`;
+                    });
+                    searchResults.appendChild(div);
+                });
+                searchResults.style.display = 'block';
+            } else {
+                const div = document.createElement('div');
+                div.className = 'search-result-item';
+                div.style.color = 'var(--text-muted)';
+                div.innerText = 'Ничего не найдено';
+                searchResults.appendChild(div);
+                searchResults.style.display = 'block';
+            }
+        });
+
+        // Close search on click outside
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // 2. Interactive Local Graph View (Vis Network)
+        fetch('./graph.json')
+            .then(response => response.json())
+            .then(data => {
+                const nodes = data.nodes || [];
+                const edges = data.edges || [];
+
+                // Color palette per entity type
+                const TYPE_COLORS = {
+                    book: '#7aa2f7',
+                    movie: '#7dcfff',
+                    series: '#9d7cd8',
+                    anime: '#bb9af7',
+                    technology: '#2ac3de',
+                    link: '#ff9e64',
+                    note: '#9ece6a',
+                    product: '#e0af68',
+                    default: '#565f89'
+                };
+
+                // Count each node's degree so hubs render a bit larger.
+                const degreeScale = {};
+                nodes.forEach(n => degreeScale[n.id] = 0);
+                edges.forEach(edge => {
+                    if (degreeScale[edge.from] !== undefined) degreeScale[edge.from]++;
+                    if (degreeScale[edge.to] !== undefined) degreeScale[edge.to]++;
+                });
+
+                // On content pages show only the current node + its neighbours
+                // (1st degree). On a page with no node in the graph (e.g. index,
+                // which isn't a real knowledge page) show the whole graph.
+                const hasCurrent = nodes.some(n => n.id === CURRENT_SLUG);
+                let localNodesSet;
+                let shownEdges;
+                if (hasCurrent) {
+                    const connectedEdgeSlugs = new Set();
+                    edges.forEach(edge => {
+                        if (edge.from === CURRENT_SLUG) connectedEdgeSlugs.add(edge.to);
+                        if (edge.to === CURRENT_SLUG) connectedEdgeSlugs.add(edge.from);
+                    });
+                    localNodesSet = new Set([CURRENT_SLUG, ...connectedEdgeSlugs]);
+                    shownEdges = edges.filter(edge =>
+                        localNodesSet.has(edge.from) && localNodesSet.has(edge.to));
+                } else {
+                    localNodesSet = new Set(nodes.map(n => n.id));
+                    shownEdges = edges;
+                }
+
+                // Vis.network draws symmetric a->b and b->a as overlapping lines;
+                // drop the duplicate direction to keep the graph readable.
+                const seenKeys = new Set();
+                const dedupEdges = [];
+                shownEdges.forEach(edge => {
+                    const k1 = edge.from + '|' + edge.to;
+                    const k2 = edge.to + '|' + edge.from;
+                    if (seenKeys.has(k1)) return;
+                    seenKeys.add(k1);
+                    seenKeys.add(k2);
+                    dedupEdges.push(edge);
+                });
+
+                const touches = (edge) => edge.from === CURRENT_SLUG || edge.to === CURRENT_SLUG;
+                const filteredNodes = nodes.filter(n => localNodesSet.has(n.id));
+
+                const mappedNodes = filteredNodes.map(node => {
+                    const isCurrent = node.id === CURRENT_SLUG;
+                    const deg = degreeScale[node.id] || 0;
+                    const color = TYPE_COLORS[node.type] || TYPE_COLORS.default;
+                    const fill = isCurrent ? TYPE_COLORS.anime : color;
+                    return {
+                        id: node.id,
+                        label: node.title,
+                        shape: 'dot',
+                        size: isCurrent ? 28 : (11 + Math.min(deg * 2, 16)),
+                        color: {
+                            background: fill,
+                            border: fill,
+                            highlight: { background: '#2ac3de', border: '#2ac3de' }
+                        },
+                        font: {
+                            color: isCurrent ? '#c0caf5' : '#a9b1d6',
+                            size: isCurrent ? 15 : 12,
+                            face: 'Inter'
+                        },
+                        borderWidth: isCurrent ? 3 : 2
+                    };
+                });
+
+                const mappedEdges = dedupEdges.map(edge => ({
+                    from: edge.from,
+                    to: edge.to,
+                    color: {
+                        color: touches(edge) ? '#7aa2f7' : '#3b4261',
+                        highlight: '#2ac3de'
+                    },
+                    width: touches(edge) ? 2.5 : 1.2
+                }));
+
+                const container = document.getElementById('network-graph');
+                const graphData = {
+                    nodes: new vis.DataSet(mappedNodes),
+                    edges: new vis.DataSet(mappedEdges)
+                };
+
+                const options = {
+                    layout: { width: '100%', height: '100%', improved: true },
+                    nodes: {
+                        scaling: { min: 10, max: 40 }
+                    },
+                    physics: {
+                        barnesHut: {
+                            gravitationalConstant: -1800,
+                            centralGravity: 0.02,
+                            springLength: 200,
+                            springConstant: 0.02,
+                            damping: 0.12,
+                            avoidOverlap: 0.6
+                        }
+                    },
+                    interaction: {
+                        hover: true,
+                        tooltipDelay: 3600000 // Disable built-in tooltip popups
+                    }
+                };
+
+                const network = new vis.Network(container, graphData, options);
+
+                // Add navigation to graph click (only to pages that exist)
+                network.on("click", (params) => {
+                    if (params.nodes.length > 0) {
+                        const clickedNode = params.nodes[0];
+                        if (clickedNode !== CURRENT_SLUG && localNodesSet.has(clickedNode)) {
+                            window.location.href = `./${clickedNode}.html`;
+                        }
+                    }
+                });
+            })
+            .catch(err => console.error("Error loading graph.json:", err));
+    </script>
+</body>
+</html>

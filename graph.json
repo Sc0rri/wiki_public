@@ -166,6 +166,15 @@
       ]
     },
     {
+      "id": "the-mandalorian-and-grogu",
+      "type": "movie",
+      "title": "The Mandalorian and Grogu",
+      "tags": [
+        "Кинематограф",
+        "Фантастика"
+      ]
+    },
+    {
       "id": "the-super-mario-galaxy-movie",
       "type": "movie",
       "title": "The Super Mario Galaxy Movie",
@@ -309,6 +318,11 @@
       "type": "related_to"
     },
     {
+      "from": "a-drop-of-corruption",
+      "to": "the-mandalorian-and-grogu",
+      "type": "related_to"
+    },
+    {
       "from": "the-last-murder-at-the-end-of-the-world",
       "to": "a-drop-of-corruption",
       "type": "related_to"
@@ -324,6 +338,11 @@
       "type": "related_to"
     },
     {
+      "from": "the-last-murder-at-the-end-of-the-world",
+      "to": "the-mandalorian-and-grogu",
+      "type": "related_to"
+    },
+    {
       "from": "what-moves-the-dead",
       "to": "the-last-murder-at-the-end-of-the-world",
       "type": "related_to"
@@ -336,6 +355,11 @@
     {
       "from": "what-moves-the-dead",
       "to": "a-drop-of-corruption",
+      "type": "related_to"
+    },
+    {
+      "from": "what-moves-the-dead",
+      "to": "the-mandalorian-and-grogu",
       "type": "related_to"
     },
     {
@@ -586,6 +610,31 @@
     {
       "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
       "to": "prompt-library-claude-code-docs",
+      "type": "related_to"
+    },
+    {
+      "from": "the-mandalorian-and-grogu",
+      "to": "a-drop-of-corruption",
+      "type": "related_to"
+    },
+    {
+      "from": "the-mandalorian-and-grogu",
+      "to": "the-last-murder-at-the-end-of-the-world",
+      "type": "related_to"
+    },
+    {
+      "from": "the-mandalorian-and-grogu",
+      "to": "what-moves-the-dead",
+      "type": "related_to"
+    },
+    {
+      "from": "the-mandalorian-and-grogu",
+      "to": "the-super-mario-galaxy-movie",
+      "type": "related_to"
+    },
+    {
+      "from": "the-super-mario-galaxy-movie",
+      "to": "the-mandalorian-and-grogu",
       "type": "related_to"
     },
     {
