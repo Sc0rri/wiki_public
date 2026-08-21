@@ -166,6 +166,16 @@
       ]
     },
     {
+      "id": "mortal-kombat-2",
+      "type": "movie",
+      "title": "Mortal Kombat 2",
+      "tags": [
+        "Кино",
+        "Боевик",
+        "Фэнтези"
+      ]
+    },
+    {
       "id": "the-mandalorian-and-grogu",
       "type": "movie",
       "title": "The Mandalorian and Grogu",
@@ -613,6 +623,21 @@
       "type": "related_to"
     },
     {
+      "from": "mortal-kombat-2",
+      "to": "a-knight-of-the-seven-kingdoms",
+      "type": "related_to"
+    },
+    {
+      "from": "mortal-kombat-2",
+      "to": "the-mandalorian-and-grogu",
+      "type": "related_to"
+    },
+    {
+      "from": "mortal-kombat-2",
+      "to": "the-super-mario-galaxy-movie",
+      "type": "related_to"
+    },
+    {
       "from": "the-mandalorian-and-grogu",
       "to": "a-drop-of-corruption",
       "type": "related_to"
@@ -629,12 +654,27 @@
     },
     {
       "from": "the-mandalorian-and-grogu",
+      "to": "mortal-kombat-2",
+      "type": "related_to"
+    },
+    {
+      "from": "the-mandalorian-and-grogu",
       "to": "the-super-mario-galaxy-movie",
       "type": "related_to"
     },
     {
       "from": "the-super-mario-galaxy-movie",
+      "to": "mortal-kombat-2",
+      "type": "related_to"
+    },
+    {
+      "from": "the-super-mario-galaxy-movie",
       "to": "the-mandalorian-and-grogu",
+      "type": "related_to"
+    },
+    {
+      "from": "a-knight-of-the-seven-kingdoms",
+      "to": "mortal-kombat-2",
       "type": "related_to"
     },
     {

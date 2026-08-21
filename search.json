@@ -304,6 +304,24 @@
     "text": "Як досвід роботи з Go змінив моє бачення PHP \n  Description\nАвтор ділиться досвідом переходу з PHP на Go — від «незручної» мови до зміни способу мислення. Пояснює, як Go впливає на дизайн контрактів, контроль над помилками, роботу з типами та залежностями, і чому після нього і PHP сприймається по іншому."
   },
   {
+    "id": "mortal-kombat-2",
+    "title": "Mortal Kombat 2",
+    "aliases": [],
+    "type": "movie",
+    "tags": [
+      "Кино",
+      "Боевик",
+      "Фэнтези"
+    ],
+    "summary": "Экранизация культовой серии файтинг игр Mortal Kombat, продолжающая историю вселенной и турнира смертельной битвы.",
+    "links": [
+      "a-knight-of-the-seven-kingdoms",
+      "the-mandalorian-and-grogu",
+      "the-super-mario-galaxy-movie"
+    ],
+    "text": "Mortal Kombat 2 \n  Description\nЭкранизация культовой серии файтинг игр Mortal Kombat, продолжающая историю вселенной и турнира смертельной битвы.\n\n  Metadata\n   Original Title:  Mortal Kombat 2\n   Director:  Simon McQuoid\n   Runtime:  116\n   Year:  2026\n   Genres:  Action, Fantasy, Adventure\n\n  Themes\n  боевые искусства\n  видеоигровые адаптации\n  турнир\n  фэнтези экшен\n\n  Personal\n Status:  Watched"
+  },
+  {
     "id": "the-mandalorian-and-grogu",
     "title": "The Mandalorian and Grogu",
     "aliases": [],
@@ -317,6 +335,7 @@
       "a-drop-of-corruption",
       "the-last-murder-at-the-end-of-the-world",
       "what-moves-the-dead",
+      "mortal-kombat-2",
       "the-super-mario-galaxy-movie"
     ],
     "text": "The Mandalorian and Grogu \n  Description\nУ Мандалорца нет сюжета, только путь\n\n  Metadata\n   Original Title:  The Mandalorian and Grogu\n   Director:  Jon Favreau\n   Runtime:  132\n   Year:  2026\n   Genres:  Action, Adventure, Science Fiction\n\n  Themes\n  космическая опера\n  охота за головами\n  наемники\n  искусственный интеллект и роботы\n\n  Personal\n Rating:  4/10\n Status:  Watched"
@@ -333,6 +352,7 @@
     ],
     "summary": "Совсем примитивная история и остуствие арок персонажей",
     "links": [
+      "mortal-kombat-2",
       "the-mandalorian-and-grogu"
     ],
     "text": "The Super Mario Galaxy Movie \n  Description\nСовсем примитивная история и остуствие арок персонажей\n\n  Metadata\n   Original Title:  The Super Mario Galaxy Movie\n   Director:  Michael Jelenic\n   Runtime:  98\n   Year:  2026\n   Genres:  Family, Comedy, Adventure, Fantasy, Animation\n\n  Themes\n  видеоигры\n  космос\n  приключения\n\n  Personal\n Rating:  5/10\n Status:  Watched"
@@ -348,6 +368,7 @@
     ],
     "summary": "Посмотрел первый сезон",
     "links": [
+      "mortal-kombat-2",
       "shrinking"
     ],
     "text": "A Knight of the Seven Kingdoms \n  Description\nПосмотрел первый сезон\n\n  Metadata\n   Original Title:  A Knight of the Seven Kingdoms\n   Year:  2026\n   Total Seasons:  1\n   Total Episodes:  6\n   TV Status:  Returning Series\n   Genres:  Drama, Sci Fi & Fantasy, Action & Adventure\n\n  Personal\n Rating:  8/10\n Status:  Watched"
