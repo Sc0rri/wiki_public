@@ -166,6 +166,16 @@
       ]
     },
     {
+      "id": "minions-monsters",
+      "type": "movie",
+      "title": "Minions & Monsters",
+      "tags": [
+        "Фильм",
+        "Комедия",
+        "Анимация"
+      ]
+    },
+    {
       "id": "mortal-kombat-2",
       "type": "movie",
       "title": "Mortal Kombat 2",
@@ -173,6 +183,17 @@
         "Кино",
         "Боевик",
         "Фэнтези"
+      ]
+    },
+    {
+      "id": "teenage-mutant-ninja-turtles",
+      "type": "movie",
+      "title": "Teenage Mutant Ninja Turtles",
+      "tags": [
+        "Кино",
+        "Боевик",
+        "Комедия",
+        "Фантастика"
       ]
     },
     {
@@ -260,6 +281,23 @@
       ]
     },
     {
+      "id": "ecc",
+      "type": "technology",
+      "title": "ECC",
+      "tags": [
+        "ai-agents",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "developer-tools",
+        "llm",
+        "mcp",
+        "productivity",
+        "JavaScript",
+        "GitHub"
+      ]
+    },
+    {
       "id": "free-models-router-api-pricing-providers-openrouter",
       "type": "technology",
       "title": "Free Models Router - API Pricing & Providers | OpenRouter",
@@ -329,6 +367,11 @@
     },
     {
       "from": "a-drop-of-corruption",
+      "to": "teenage-mutant-ninja-turtles",
+      "type": "related_to"
+    },
+    {
+      "from": "a-drop-of-corruption",
       "to": "the-mandalorian-and-grogu",
       "type": "related_to"
     },
@@ -349,6 +392,11 @@
     },
     {
       "from": "the-last-murder-at-the-end-of-the-world",
+      "to": "teenage-mutant-ninja-turtles",
+      "type": "related_to"
+    },
+    {
+      "from": "the-last-murder-at-the-end-of-the-world",
       "to": "the-mandalorian-and-grogu",
       "type": "related_to"
     },
@@ -365,6 +413,11 @@
     {
       "from": "what-moves-the-dead",
       "to": "a-drop-of-corruption",
+      "type": "related_to"
+    },
+    {
+      "from": "what-moves-the-dead",
+      "to": "teenage-mutant-ninja-turtles",
       "type": "related_to"
     },
     {
@@ -404,6 +457,11 @@
     },
     {
       "from": "awesome-agent-orchestrators",
+      "to": "ecc",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-agent-orchestrators",
       "to": "ponytail",
       "type": "related_to"
     },
@@ -415,11 +473,6 @@
     {
       "from": "awesome-agent-orchestrators",
       "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
-      "type": "related_to"
-    },
-    {
-      "from": "awesome-agent-orchestrators",
-      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
       "type": "related_to"
     },
     {
@@ -623,8 +676,43 @@
       "type": "related_to"
     },
     {
+      "from": "minions-monsters",
+      "to": "the-super-mario-galaxy-movie",
+      "type": "related_to"
+    },
+    {
+      "from": "minions-monsters",
+      "to": "teenage-mutant-ninja-turtles",
+      "type": "related_to"
+    },
+    {
+      "from": "minions-monsters",
+      "to": "shrinking",
+      "type": "related_to"
+    },
+    {
+      "from": "minions-monsters",
+      "to": "mortal-kombat-2",
+      "type": "related_to"
+    },
+    {
+      "from": "minions-monsters",
+      "to": "the-mandalorian-and-grogu",
+      "type": "related_to"
+    },
+    {
+      "from": "mortal-kombat-2",
+      "to": "teenage-mutant-ninja-turtles",
+      "type": "related_to"
+    },
+    {
       "from": "mortal-kombat-2",
       "to": "a-knight-of-the-seven-kingdoms",
+      "type": "related_to"
+    },
+    {
+      "from": "mortal-kombat-2",
+      "to": "minions-monsters",
       "type": "related_to"
     },
     {
@@ -635,6 +723,36 @@
     {
       "from": "mortal-kombat-2",
       "to": "the-super-mario-galaxy-movie",
+      "type": "related_to"
+    },
+    {
+      "from": "teenage-mutant-ninja-turtles",
+      "to": "mortal-kombat-2",
+      "type": "related_to"
+    },
+    {
+      "from": "teenage-mutant-ninja-turtles",
+      "to": "minions-monsters",
+      "type": "related_to"
+    },
+    {
+      "from": "teenage-mutant-ninja-turtles",
+      "to": "the-mandalorian-and-grogu",
+      "type": "related_to"
+    },
+    {
+      "from": "teenage-mutant-ninja-turtles",
+      "to": "a-drop-of-corruption",
+      "type": "related_to"
+    },
+    {
+      "from": "teenage-mutant-ninja-turtles",
+      "to": "shrinking",
+      "type": "related_to"
+    },
+    {
+      "from": "the-mandalorian-and-grogu",
+      "to": "teenage-mutant-ninja-turtles",
       "type": "related_to"
     },
     {
@@ -654,17 +772,22 @@
     },
     {
       "from": "the-mandalorian-and-grogu",
-      "to": "mortal-kombat-2",
+      "to": "minions-monsters",
       "type": "related_to"
     },
     {
-      "from": "the-mandalorian-and-grogu",
-      "to": "the-super-mario-galaxy-movie",
+      "from": "the-super-mario-galaxy-movie",
+      "to": "minions-monsters",
       "type": "related_to"
     },
     {
       "from": "the-super-mario-galaxy-movie",
       "to": "mortal-kombat-2",
+      "type": "related_to"
+    },
+    {
+      "from": "the-super-mario-galaxy-movie",
+      "to": "teenage-mutant-ninja-turtles",
       "type": "related_to"
     },
     {
@@ -680,6 +803,16 @@
     {
       "from": "a-knight-of-the-seven-kingdoms",
       "to": "shrinking",
+      "type": "related_to"
+    },
+    {
+      "from": "shrinking",
+      "to": "minions-monsters",
+      "type": "related_to"
+    },
+    {
+      "from": "shrinking",
+      "to": "teenage-mutant-ninja-turtles",
       "type": "related_to"
     },
     {
@@ -704,12 +837,12 @@
     },
     {
       "from": "autoprompt-skill",
-      "to": "awesome-llm-apps",
+      "to": "ecc",
       "type": "related_to"
     },
     {
       "from": "autoprompt-skill",
-      "to": "free-models-router-api-pricing-providers-openrouter",
+      "to": "awesome-llm-apps",
       "type": "related_to"
     },
     {
@@ -724,6 +857,11 @@
     },
     {
       "from": "awesome-llm-apps",
+      "to": "ecc",
+      "type": "related_to"
+    },
+    {
+      "from": "awesome-llm-apps",
       "to": "ponytail",
       "type": "related_to"
     },
@@ -733,8 +871,28 @@
       "type": "related_to"
     },
     {
-      "from": "awesome-llm-apps",
-      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "from": "ecc",
+      "to": "ponytail",
+      "type": "related_to"
+    },
+    {
+      "from": "ecc",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "ecc",
+      "to": "awesome-agent-orchestrators",
+      "type": "related_to"
+    },
+    {
+      "from": "ecc",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "ecc",
+      "to": "free-models-router-api-pricing-providers-openrouter",
       "type": "related_to"
     },
     {
@@ -769,6 +927,11 @@
     },
     {
       "from": "learn-statamic-statamic-6-docs",
+      "to": "ecc",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
       "to": "free-models-router-api-pricing-providers-openrouter",
       "type": "related_to"
     },
@@ -783,8 +946,8 @@
       "type": "related_to"
     },
     {
-      "from": "learn-statamic-statamic-6-docs",
-      "to": "ponytail",
+      "from": "ponytail",
+      "to": "ecc",
       "type": "related_to"
     },
     {
@@ -805,11 +968,6 @@
     {
       "from": "ponytail",
       "to": "free-models-router-api-pricing-providers-openrouter",
-      "type": "related_to"
-    },
-    {
-      "from": "ponytail",
-      "to": "learn-statamic-statamic-6-docs",
       "type": "related_to"
     }
   ]
