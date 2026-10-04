@@ -145,7 +145,7 @@
       "ecc",
       "ponytail",
       "awesome-llm-apps",
-      "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence"
+      "vulpy-commerce-core"
     ],
     "text": "awesome-agent-orchestrators \n  About\n   URL:  <https://github.com/andyrewlee/awesome agent orchestrators \n\nCurated list of frameworks, tools, and resources for orchestrating AI agents.\n\n  Metadata\n   Owner:  andyrewlee\n   Stars:  1430"
   },
@@ -501,7 +501,7 @@
       "autoprompt-skill",
       "ecc",
       "ponytail",
-      "hermes-agent-оркестрація-ai-агентів-та-profiles"
+      "vulpy-commerce-core"
     ],
     "text": "awesome-llm-apps \n  About\nAwesome collection of practical LLM applications, RAG systems, and AI agents built with Python and popular frameworks.\n\n  Metadata\n   Stars:  133065\n   Language:  Python"
   },
@@ -527,8 +527,8 @@
       "ponytail",
       "autoprompt-skill",
       "awesome-agent-orchestrators",
-      "awesome-llm-apps",
-      "free-models-router-api-pricing-providers-openrouter"
+      "vulpy-commerce-core",
+      "awesome-llm-apps"
     ],
     "text": "ECC \n  Description\nThe agent harness performance optimization system. Skills, instincts, memory, security, and research first development for Claude Code, Codex, Opencode, Cursor and beyond.\n\n  Metadata\n   Owner:  affaan m\n   Stars:  258981\n   License:  MIT\n   Language:  JavaScript"
   },
@@ -598,9 +598,33 @@
       "ecc",
       "autoprompt-skill",
       "awesome-agent-orchestrators",
-      "awesome-llm-apps",
-      "free-models-router-api-pricing-providers-openrouter"
+      "vulpy-commerce-core",
+      "awesome-llm-apps"
     ],
     "text": "ponytail \n  Description\nMakes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.\n\n  Metadata\n   Owner:  DietrichGebert\n   Stars:  92101\n   License:  MIT\n   Language:  JavaScript"
+  },
+  {
+    "id": "vulpy-commerce-core",
+    "title": "vulpy-commerce-core",
+    "aliases": [],
+    "type": "technology",
+    "tags": [
+      "ai-agent",
+      "ecommerce",
+      "medusa",
+      "nextjs",
+      "payload-cms",
+      "JavaScript",
+      "GitHub"
+    ],
+    "summary": "AI run shop: Medusa v2 + Next.js + Payload CMS operated by Fox, the built in AI assistant. Open source free edition of Vulpy Commerce.",
+    "links": [
+      "ecc",
+      "autoprompt-skill",
+      "ponytail",
+      "awesome-llm-apps",
+      "awesome-agent-orchestrators"
+    ],
+    "text": "vulpy-commerce-core \n  Description\nAI run shop: Medusa v2 + Next.js + Payload CMS operated by Fox, the built in AI assistant. Open source free edition of Vulpy Commerce.\n\n  Metadata\n   Owner:  vulpy io\n   Stars:  75\n   License:  Apache 2.0\n   Language:  JavaScript"
   }
 ]

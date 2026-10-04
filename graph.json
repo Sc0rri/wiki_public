@@ -337,6 +337,20 @@
         "JavaScript",
         "GitHub"
       ]
+    },
+    {
+      "id": "vulpy-commerce-core",
+      "type": "technology",
+      "title": "vulpy-commerce-core",
+      "tags": [
+        "ai-agent",
+        "ecommerce",
+        "medusa",
+        "nextjs",
+        "payload-cms",
+        "JavaScript",
+        "GitHub"
+      ]
     }
   ],
   "edges": [
@@ -472,7 +486,7 @@
     },
     {
       "from": "awesome-agent-orchestrators",
-      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "vulpy-commerce-core",
       "type": "related_to"
     },
     {
@@ -867,7 +881,7 @@
     },
     {
       "from": "awesome-llm-apps",
-      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "to": "vulpy-commerce-core",
       "type": "related_to"
     },
     {
@@ -887,12 +901,12 @@
     },
     {
       "from": "ecc",
-      "to": "awesome-llm-apps",
+      "to": "vulpy-commerce-core",
       "type": "related_to"
     },
     {
       "from": "ecc",
-      "to": "free-models-router-api-pricing-providers-openrouter",
+      "to": "awesome-llm-apps",
       "type": "related_to"
     },
     {
@@ -962,12 +976,37 @@
     },
     {
       "from": "ponytail",
-      "to": "awesome-llm-apps",
+      "to": "vulpy-commerce-core",
       "type": "related_to"
     },
     {
       "from": "ponytail",
-      "to": "free-models-router-api-pricing-providers-openrouter",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "vulpy-commerce-core",
+      "to": "ecc",
+      "type": "related_to"
+    },
+    {
+      "from": "vulpy-commerce-core",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "vulpy-commerce-core",
+      "to": "ponytail",
+      "type": "related_to"
+    },
+    {
+      "from": "vulpy-commerce-core",
+      "to": "awesome-llm-apps",
+      "type": "related_to"
+    },
+    {
+      "from": "vulpy-commerce-core",
+      "to": "awesome-agent-orchestrators",
       "type": "related_to"
     }
   ]
