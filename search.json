@@ -212,6 +212,27 @@
     "text": "Laravel Copilot Workspace: как я собрал полный цикл разработки вокруг Copilot-агентов \n  Description\nНедавно в Visual Studio Code появился важный апдейт: редактор научился нормально работать с кастомными Copilot агентами , описанными прямо в репозитории — в файлах .github/agents/ .agent.md . То есть..."
   },
   {
+    "id": "learn-statamic-statamic-6-docs",
+    "title": "Learn Statamic // Statamic 6 Docs",
+    "aliases": [],
+    "type": "technology",
+    "tags": [
+      "Statamic",
+      "CMS",
+      "PHP",
+      "Laravel"
+    ],
+    "summary": "Statamic — это современная CMS, работающая на базе фреймворка Laravel и хранящая данные в виде файлов без использования базы данных.",
+    "links": [
+      "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "ecc",
+      "free-models-router-api-pricing-providers-openrouter",
+      "autoprompt-skill",
+      "awesome-llm-apps"
+    ],
+    "text": "Learn Statamic // Statamic 6 Docs \n  About\nStatamic — это современная CMS, работающая на базе фреймворка Laravel и хранящая данные в виде файлов без использования базы данных."
+  },
+  {
     "id": "prompt-library-claude-code-docs",
     "title": "Prompt library - Claude Code Docs",
     "aliases": [],
@@ -552,27 +573,6 @@
       "prompt-library-claude-code-docs"
     ],
     "text": "Free Models Router - API Pricing & Providers | OpenRouter \n  About\n Add context."
-  },
-  {
-    "id": "learn-statamic-statamic-6-docs",
-    "title": "Learn Statamic // Statamic 6 Docs",
-    "aliases": [],
-    "type": "technology",
-    "tags": [
-      "Statamic",
-      "CMS",
-      "PHP",
-      "Laravel"
-    ],
-    "summary": "Statamic — это современная CMS, работающая на базе фреймворка Laravel и хранящая данные в виде файлов без использования базы данных.",
-    "links": [
-      "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
-      "ecc",
-      "free-models-router-api-pricing-providers-openrouter",
-      "autoprompt-skill",
-      "awesome-llm-apps"
-    ],
-    "text": "Learn Statamic // Statamic 6 Docs \n  About\nStatamic — это современная CMS, работающая на базе фреймворка Laravel и хранящая данные в виде файлов без использования базы данных."
   },
   {
     "id": "ponytail",

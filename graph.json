@@ -121,6 +121,17 @@
       ]
     },
     {
+      "id": "learn-statamic-statamic-6-docs",
+      "type": "technology",
+      "title": "Learn Statamic // Statamic 6 Docs",
+      "tags": [
+        "Statamic",
+        "CMS",
+        "PHP",
+        "Laravel"
+      ]
+    },
+    {
       "id": "prompt-library-claude-code-docs",
       "type": "link",
       "title": "Prompt library - Claude Code Docs",
@@ -306,17 +317,6 @@
         "API",
         "AI",
         "LLM"
-      ]
-    },
-    {
-      "id": "learn-statamic-statamic-6-docs",
-      "type": "technology",
-      "title": "Learn Statamic // Statamic 6 Docs",
-      "tags": [
-        "Statamic",
-        "CMS",
-        "PHP",
-        "Laravel"
       ]
     },
     {
@@ -562,6 +562,31 @@
     {
       "from": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
       "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "ecc",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "free-models-router-api-pricing-providers-openrouter",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "autoprompt-skill",
+      "type": "related_to"
+    },
+    {
+      "from": "learn-statamic-statamic-6-docs",
+      "to": "awesome-llm-apps",
       "type": "related_to"
     },
     {
@@ -932,31 +957,6 @@
     {
       "from": "free-models-router-api-pricing-providers-openrouter",
       "to": "prompt-library-claude-code-docs",
-      "type": "related_to"
-    },
-    {
-      "from": "learn-statamic-statamic-6-docs",
-      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
-      "type": "related_to"
-    },
-    {
-      "from": "learn-statamic-statamic-6-docs",
-      "to": "ecc",
-      "type": "related_to"
-    },
-    {
-      "from": "learn-statamic-statamic-6-docs",
-      "to": "free-models-router-api-pricing-providers-openrouter",
-      "type": "related_to"
-    },
-    {
-      "from": "learn-statamic-statamic-6-docs",
-      "to": "autoprompt-skill",
-      "type": "related_to"
-    },
-    {
-      "from": "learn-statamic-statamic-6-docs",
-      "to": "awesome-llm-apps",
       "type": "related_to"
     },
     {
