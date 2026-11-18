@@ -59,6 +59,24 @@
       ]
     },
     {
+      "id": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "type": "link",
+      "title": "15 Fantasy Books You Need To Read, According to Brandon Sanderson",
+      "tags": [
+        "Книги",
+        "Фэнтези"
+      ]
+    },
+    {
+      "id": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "type": "link",
+      "title": "6 Fantasy Series With Hard Magic Systems Mistborn and Stormlight Fans Should Read in 2026",
+      "tags": [
+        "Фэнтези",
+        "Книги"
+      ]
+    },
+    {
       "id": "awesome-agent-orchestrators",
       "type": "link",
       "title": "awesome-agent-orchestrators",
@@ -465,6 +483,56 @@
       "type": "related_to"
     },
     {
+      "from": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "to": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "type": "related_to"
+    },
+    {
+      "from": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "to": "a-knight-of-the-seven-kingdoms",
+      "type": "related_to"
+    },
+    {
+      "from": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "to": "mortal-kombat-2",
+      "type": "related_to"
+    },
+    {
+      "from": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "type": "related_to"
+    },
+    {
+      "from": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
+      "from": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "to": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "type": "related_to"
+    },
+    {
+      "from": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "to": "a-knight-of-the-seven-kingdoms",
+      "type": "related_to"
+    },
+    {
+      "from": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "to": "mortal-kombat-2",
+      "type": "related_to"
+    },
+    {
+      "from": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "type": "related_to"
+    },
+    {
+      "from": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
+      "type": "related_to"
+    },
+    {
       "from": "awesome-agent-orchestrators",
       "to": "autoprompt-skill",
       "type": "related_to"
@@ -491,6 +559,16 @@
     },
     {
       "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "type": "related_to"
+    },
+    {
+      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "type": "related_to"
+    },
+    {
+      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
       "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
       "type": "related_to"
     },
@@ -502,16 +580,6 @@
     {
       "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
       "to": "prompt-library-claude-code-docs",
-      "type": "related_to"
-    },
-    {
-      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
-      "to": "awesome-agent-orchestrators",
-      "type": "related_to"
-    },
-    {
-      "from": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
-      "to": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
       "type": "related_to"
     },
     {
@@ -621,22 +689,22 @@
     },
     {
       "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "to": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "type": "related_to"
+    },
+    {
+      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
+      "to": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "type": "related_to"
+    },
+    {
+      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
       "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
       "type": "related_to"
     },
     {
       "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
       "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
-      "type": "related_to"
-    },
-    {
-      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
-      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
-      "type": "related_to"
-    },
-    {
-      "from": "від-rag-до-llm-wiki-як-побудувати-персистентну-базу-знань-за-концепціє",
-      "to": "prompt-library-claude-code-docs",
       "type": "related_to"
     },
     {
@@ -656,12 +724,12 @@
     },
     {
       "from": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
-      "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
+      "to": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
       "type": "related_to"
     },
     {
       "from": "ии-трейдер-без-кода-создаем-бота-для-автоматизации-торговли-на-ба",
-      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
+      "to": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
       "type": "related_to"
     },
     {
@@ -671,22 +739,22 @@
     },
     {
       "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "to": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "type": "related_to"
+    },
+    {
+      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
+      "to": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "type": "related_to"
+    },
+    {
+      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
       "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
       "type": "related_to"
     },
     {
       "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
       "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
-      "type": "related_to"
-    },
-    {
-      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
-      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
-      "type": "related_to"
-    },
-    {
-      "from": "крипта-що-працює-сама-як-торгові-боти-принесли-мені-1-150-за-місяць-f",
-      "to": "prompt-library-claude-code-docs",
       "type": "related_to"
     },
     {
@@ -696,22 +764,22 @@
     },
     {
       "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "to": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "type": "related_to"
+    },
+    {
+      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
+      "to": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "type": "related_to"
+    },
+    {
+      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
       "to": "backup-ubuntu-in-windows-subsystem-for-linux-scott-spence",
       "type": "related_to"
     },
     {
       "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
       "to": "hermes-agent-оркестрація-ai-агентів-та-profiles",
-      "type": "related_to"
-    },
-    {
-      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
-      "to": "laravel-copilot-workspace-как-я-собрал-полный-цикл-разработки-вокруг-copilot-аге",
-      "type": "related_to"
-    },
-    {
-      "from": "як-досвід-роботи-з-go-змінив-моє-бачення-php",
-      "to": "prompt-library-claude-code-docs",
       "type": "related_to"
     },
     {
@@ -746,22 +814,22 @@
     },
     {
       "from": "mortal-kombat-2",
+      "to": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "type": "related_to"
+    },
+    {
+      "from": "mortal-kombat-2",
+      "to": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
+      "type": "related_to"
+    },
+    {
+      "from": "mortal-kombat-2",
       "to": "a-knight-of-the-seven-kingdoms",
       "type": "related_to"
     },
     {
       "from": "mortal-kombat-2",
       "to": "minions-monsters",
-      "type": "related_to"
-    },
-    {
-      "from": "mortal-kombat-2",
-      "to": "the-mandalorian-and-grogu",
-      "type": "related_to"
-    },
-    {
-      "from": "mortal-kombat-2",
-      "to": "the-super-mario-galaxy-movie",
       "type": "related_to"
     },
     {
@@ -832,6 +900,16 @@
     {
       "from": "the-super-mario-galaxy-movie",
       "to": "the-mandalorian-and-grogu",
+      "type": "related_to"
+    },
+    {
+      "from": "a-knight-of-the-seven-kingdoms",
+      "to": "15-fantasy-books-you-need-to-read-according-to-brandon-sanderson",
+      "type": "related_to"
+    },
+    {
+      "from": "a-knight-of-the-seven-kingdoms",
+      "to": "6-fantasy-series-with-hard-magic-systems-mistborn-and-stormlight-fans-should-read-in-2026",
       "type": "related_to"
     },
     {
